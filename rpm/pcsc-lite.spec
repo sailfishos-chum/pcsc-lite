@@ -32,7 +32,8 @@ Summary:        PC/SC Smart Cards Library
 License:        BSD-3-Clause AND GPL-3.0-or-later
 Group:          Productivity/Security
 URL:            https://pcsclite.apdu.fr/
-Source:         https://pcsclite.apdu.fr/files/%{name}-%{version}.tar.bz2
+# Source:         https://pcsclite.apdu.fr/files/%{name}-%{version}.tar.bz2
+Source0:        %{name}-%{version}.tar.gz
 Source1:        %{name}.sysconfig
 Source6:        pcsc-lite-reader-conf
 Source7:        https://pcsclite.apdu.fr/files/%{name}-%{version}.tar.bz2.asc
