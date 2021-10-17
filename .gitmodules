@@ -1,0 +1,3 @@
+[submodule "PCSC"]
+	path = PCSC
+	url = https://salsa.debian.org/rousseau/PCSC.git
