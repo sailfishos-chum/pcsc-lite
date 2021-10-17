@@ -105,7 +105,7 @@ This package contains the development files for pcsc-lite. It allows to
 compile plugins for the pcsc-lite package.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}/PCSC
 #%patch0 -p1
 #%patch1 -p1
 cp -a %{SOURCE1} %{SOURCE6} .
