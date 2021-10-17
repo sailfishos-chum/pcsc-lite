@@ -108,7 +108,7 @@ compile plugins for the pcsc-lite package.
 %setup -q
 #%patch0 -p1
 #%patch1 -p1
-cp -a ../%{SOURCE1} ../%{SOURCE6} .
+cp -a %{SOURCE1} %{SOURCE6} .
 
 %build
 %configure \
