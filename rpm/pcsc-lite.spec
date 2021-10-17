@@ -219,6 +219,3 @@ systemctl daemon-reload || :
 %{_bindir}/*
 # libpcsclite.so should stay in the main package (#732911). Third party packages may need it for dlopen().
 %exclude %{_libdir}/libpcsclite.so
-
-%changelog
- 
