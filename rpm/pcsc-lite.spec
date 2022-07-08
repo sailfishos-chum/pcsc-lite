@@ -44,6 +44,7 @@ BuildRequires:  readline-devel
 BuildRequires:  pkgconfig(libsystemd)
 BuildRequires:  autoconf
 BuildRequires:  autoconf-archive
+BuildRequires:  flex
 Requires:       libpcsclite1 = %{version}
 #Requires(post): %fillup_prereq
 #Requires(pre):  shadow
