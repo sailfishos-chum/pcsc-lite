@@ -185,8 +185,6 @@ systemctl daemon-reload || :
 %{_docdir}/%{name}/HELP
 %{_docdir}/%{name}/NEWS
 %{_docdir}/%{name}/README
-#%{_docdir}/%{name}/README.SUSE
-#%{_docdir}/%{name}/README.polkit
 %{_docdir}/%{name}/README.DAEMON
 %{_docdir}/%{name}/SECURITY
 %{_docdir}/%{name}/TODO
@@ -199,7 +197,6 @@ systemctl daemon-reload || :
 %{_fillupdir}/sysconfig.pcscd
 # libpcsclite.so should stay in the main package (#732911). Third party packages may need it for dlopen().
 %{_libdir}/libpcsclite.so
-#%{_datadir}/polkit-1/actions/org.debian.pcsc-lite.policy
 
 %files -n libpcsclite1
 %defattr(-,root,root)
