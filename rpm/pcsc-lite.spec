@@ -43,6 +43,8 @@ BuildRequires:  libtool
 BuildRequires:  pkgconfig
 BuildRequires:  readline-devel
 BuildRequires:  pkgconfig(libsystemd)
+BuildRequires:  autoconf
+BuildRequires:  autoconf-archive
 Requires:       libpcsclite1 = %{version}
 #Requires(post): %fillup_prereq
 #Requires(pre):  shadow
