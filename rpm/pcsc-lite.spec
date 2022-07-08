@@ -32,12 +32,9 @@ Summary:        PC/SC Smart Cards Library
 License:        BSD-3-Clause AND GPL-3.0-or-later
 Group:          Productivity/Security
 URL:            https://pcsclite.apdu.fr/
-# Source:         https://pcsclite.apdu.fr/files/%{name}-%{version}.tar.bz2
-Source0:        %{name}-%{version}.tar.gz
+Source:         %{name}-%{version}.tar.bz2
 Source1:        %{name}.sysconfig
 Source6:        pcsc-lite-reader-conf
-Source7:        https://pcsclite.apdu.fr/files/%{name}-%{version}.tar.bz2.asc
-Source8:        %{name}.keyring
 BuildRequires:  gcc
 BuildRequires:  libtool
 BuildRequires:  pkgconfig
@@ -45,6 +42,7 @@ BuildRequires:  readline-devel
 BuildRequires:  pkgconfig(libsystemd)
 BuildRequires:  autoconf
 BuildRequires:  autoconf-archive
+BuildRequires:  flex
 Requires:       libpcsclite1 = %{version}
 #Requires(post): %fillup_prereq
 #Requires(pre):  shadow
@@ -107,14 +105,13 @@ This package contains the development files for pcsc-lite. It allows to
 compile plugins for the pcsc-lite package.
 
 %prep
-# %setup -q -n %{name}-%{version}/PCSC
-%setup -q
+%setup -q -n %{name}-%{version}/PCSC
 #%patch0 -p1
 #%patch1 -p1
 cp -a %{SOURCE1} %{SOURCE6} .
 
 %build
-%configure \
+%reconfigure \
 	--disable-silent-rules \
 	--docdir=%{_docdir}/%{name} \
 	--enable-usbdropdir=%{ifddir} \
@@ -122,7 +119,7 @@ cp -a %{SOURCE1} %{SOURCE6} .
 	--enable-polkit \
 	--enable-filter \
 	--disable-static
-make %{?_smp_mflags}
+%make_build
 
 %install
 %make_install
@@ -187,8 +184,6 @@ systemctl daemon-reload || :
 %{_docdir}/%{name}/HELP
 %{_docdir}/%{name}/NEWS
 %{_docdir}/%{name}/README
-#%{_docdir}/%{name}/README.SUSE
-#%{_docdir}/%{name}/README.polkit
 %{_docdir}/%{name}/README.DAEMON
 %{_docdir}/%{name}/SECURITY
 %{_docdir}/%{name}/TODO
@@ -201,7 +196,6 @@ systemctl daemon-reload || :
 %{_fillupdir}/sysconfig.pcscd
 # libpcsclite.so should stay in the main package (#732911). Third party packages may need it for dlopen().
 %{_libdir}/libpcsclite.so
-#%{_datadir}/polkit-1/actions/org.debian.pcsc-lite.policy
 
 %files -n libpcsclite1
 %defattr(-,root,root)
@@ -222,3 +216,5 @@ systemctl daemon-reload || :
 %{_bindir}/*
 # libpcsclite.so should stay in the main package (#732911). Third party packages may need it for dlopen().
 %exclude %{_libdir}/libpcsclite.so
+
+%changelog
