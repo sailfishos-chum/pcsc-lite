@@ -35,8 +35,6 @@ URL:            https://pcsclite.apdu.fr/
 Source:         %{name}-%{version}.tar.bz2
 Source1:        %{name}.sysconfig
 Source6:        pcsc-lite-reader-conf
-Source7:        https://pcsclite.apdu.fr/files/%{name}-%{version}.tar.bz2.asc
-Source8:        %{name}.keyring
 BuildRequires:  gcc
 BuildRequires:  libtool
 BuildRequires:  pkgconfig
