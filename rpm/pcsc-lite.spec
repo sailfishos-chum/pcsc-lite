@@ -113,7 +113,7 @@ compile plugins for the pcsc-lite package.
 cp -a %{SOURCE1} %{SOURCE6} .
 
 %build
-%configure \
+%reconfigure \
 	--disable-silent-rules \
 	--docdir=%{_docdir}/%{name} \
 	--enable-usbdropdir=%{ifddir} \
@@ -121,7 +121,7 @@ cp -a %{SOURCE1} %{SOURCE6} .
 	--enable-polkit \
 	--enable-filter \
 	--disable-static
-make %{?_smp_mflags}
+%make_build
 
 %install
 %make_install
