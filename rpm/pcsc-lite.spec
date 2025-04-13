@@ -130,7 +130,7 @@ ln -s %{_sbindir}/service %{buildroot}%{_sbindir}/rcpcscd
 mkdir -p %{buildroot}%{_fillupdir}
 cp %{name}.sysconfig %{buildroot}%{_fillupdir}/sysconfig.pcscd
 mkdir -p %{buildroot}%{_docdir}/%{name}
-cp -a AUTHORS ChangeLog COPYING HELP NEWS README SECURITY TODO %{buildroot}%{_docdir}/%{name}
+cp -a AUTHORS ChangeLog COPYING HELP NEWS README SECURITY %{buildroot}%{_docdir}/%{name}
 
 # To install service on SFOS
 mkdir -p %{buildroot}/%{_unitdir}/multi-user.target.wants/
@@ -186,7 +186,6 @@ systemctl daemon-reload || :
 %{_docdir}/%{name}/README
 %{_docdir}/%{name}/README.DAEMON
 %{_docdir}/%{name}/SECURITY
-%{_docdir}/%{name}/TODO
 %doc %{_mandir}/man?/*.*
 %{_sbindir}/*
 %dir %{_sysconfdir}/reader.conf.d
